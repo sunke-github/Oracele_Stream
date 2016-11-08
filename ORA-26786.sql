@@ -36,7 +36,7 @@ BEGIN
       	INTO txnid, source, msgno, msgcnt, errno, errmsg                                          
       	FROM DBA_APPLY_ERROR                                                                      
       	WHERE LOCAL_TRANSACTION_ID =  ltxnid; 
-    DBMS_OUTPUT.PUT_LINE('--- Local Transaction ID: ' || txnid);                                
+        DBMS_OUTPUT.PUT_LINE('--- Local Transaction ID: ' || txnid);                                
   	DBMS_OUTPUT.PUT_LINE('--- Source Database: ' || source);                                    
   	DBMS_OUTPUT.PUT_LINE('---Error in Message: '|| msgno);                                       
   	DBMS_OUTPUT.PUT_LINE('---Error Number: '||errno);                                            
@@ -49,9 +49,9 @@ BEGIN
   		END IF;
   		loopdog :=loopdog+1;
   		DBMS_OUTPUT.PUT_LINE('---message: ' || i);                                                     
-    	lcr := DBMS_APPLY_ADM.GET_ERROR_MESSAGE(i, txnid); -- gets the LCR                                                                                                      
+    		lcr := DBMS_APPLY_ADM.GET_ERROR_MESSAGE(i, txnid); -- gets the LCR                                                                                                      
 		typenm := lcr.GETTYPENAME();                                                                
-    	DBMS_OUTPUT.PUT_LINE('type name: ' || typenm);                                              
+    		DBMS_OUTPUT.PUT_LINE('type name: ' || typenm);                                              
 		IF (typenm = 'SYS.LCR$_ROW_RECORD') THEN
 			res := lcr.GETOBJECT(rowlcr);                                                           
 			command := rowlcr.GET_COMMAND_TYPE();                                                 
@@ -137,7 +137,7 @@ BEGIN
 	            ELSIF v_code = -1 then
 	            	DBMS_OUTPUT.PUT_LINE('Error code(-1): ' || v_code);
 	            	RAISE_APPLICATION_ERROR(-20001,v_errm);   
-            	ELSE 
+            	    ELSE 
             		RAISE_APPLICATION_ERROR(-20000,v_errm);
 	            END IF;	                                                                         
 			END;	
