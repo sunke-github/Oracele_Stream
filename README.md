@@ -12,4 +12,8 @@ granT select on DBA_cons_columns to DWESBSTREAMUSER;<br>
     EXECUTE_TRANSACTION_1('AP_0','1234567');<br>
    END;<br>
 5, Good Luck.<br>
+
+
+
+My Personal website: www.shareideas.net
     
