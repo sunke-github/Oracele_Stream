@@ -40,10 +40,10 @@ BEGIN
   	
   	loopdog :=loopdog+1;
   	DBMS_OUTPUT.PUT_LINE('--message: ' || i);                                                     
-    lcr := DBMS_APPLY_ADM.GET_ERROR_MESSAGE(i, txnid); -- gets the LCR                          
-    --print_lcr(lcr);                                                                             
+    	lcr := DBMS_APPLY_ADM.GET_ERROR_MESSAGE(i, txnid); -- gets the LCR                          
+    	--print_lcr(lcr);                                                                             
 	typenm := lcr.GETTYPENAME();                                                                
-    DBMS_OUTPUT.PUT_LINE('type name: ' || typenm);                                              
+    	DBMS_OUTPUT.PUT_LINE('type name: ' || typenm);                                              
 	IF (typenm = 'SYS.LCR$_ROW_RECORD') THEN                                                    
 		res := lcr.GETOBJECT(rowlcr);                                                           
 		command := rowlcr.GET_COMMAND_TYPE();                                                 
