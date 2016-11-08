@@ -36,7 +36,7 @@ BEGIN
       	INTO txnid, source, msgno, msgcnt, errno, errmsg                                           
       	FROM DBA_APPLY_ERROR                                                                       
       	WHERE LOCAL_TRANSACTION_ID =  ltxnid; 
-    DBMS_OUTPUT.PUT_LINE(' --- Local Transaction ID: ' || txnid);                                 
+    	DBMS_OUTPUT.PUT_LINE(' --- Local Transaction ID: ' || txnid);                                 
   	DBMS_OUTPUT.PUT_LINE(' --- Source Database: ' || source);                                     
   	DBMS_OUTPUT.PUT_LINE(' ---Error in Message: '|| msgno);                                        
   	DBMS_OUTPUT.PUT_LINE(' ---Error Number: '||errno);                                             
@@ -46,12 +46,12 @@ BEGIN
   	WHILE i <= msgcnt LOOP 
   		IF loopdog > msgcnt then
   			RAISE_APPLICATION_ERROR(-20002,'Insert or Delete error. please check your procedure.');
-	    END IF;
+	    	END IF;
   		loopdog :=loopdog+1;
   		DBMS_OUTPUT.PUT_LINE('---message: ' || i);                                                      
-    	lcr := DBMS_APPLY_ADM.GET_ERROR_MESSAGE(i, txnid); -- gets the LCR                                                                                                        
+    		lcr := DBMS_APPLY_ADM.GET_ERROR_MESSAGE(i, txnid); -- gets the LCR                                                                                                        
 		typenm := lcr.GETTYPENAME();                                                                 
-    	DBMS_OUTPUT.PUT_LINE('type name: ' || typenm);                                               
+    		DBMS_OUTPUT.PUT_LINE('type name: ' || typenm);                                               
 		IF (typenm = 'SYS.LCR$_ROW_RECORD') THEN
 			res := lcr.GETOBJECT(rowlcr);                                                            
 			command := rowlcr.GET_COMMAND_TYPE();                                                  
