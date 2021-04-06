@@ -15,5 +15,5 @@ granT select on DBA_cons_columns to DWESBSTREAMUSER;<br>
 
 
 
-My Personal website: www.shareideas.net
+My Personal website: www.shareideas.top
     
