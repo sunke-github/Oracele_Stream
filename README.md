@@ -14,6 +14,4 @@ granT select on DBA_cons_columns to DWESBSTREAMUSER;<br>
 5, Good Luck.<br>
 
 
-
-My Personal website: www.shareideas.top
     
